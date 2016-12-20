@@ -1,0 +1,22 @@
+/* CSS Document */
+
+body{
+margin-top:0px;
+margin-bottom:0px;
+margin-left:0px;
+margin-right:0px;
+background-color:#FFFFCC;
+
+}
+
+.global{
+margin: 0px auto;
+width:780px;
+
+}
+
+.linea_panel{
+font-family:arial;
+color:#0066FF;
+font-size:16px;
+}

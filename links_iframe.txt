@@ -1,0 +1,5 @@
+links iframe:
+
+http://localhost/creativos/plata/iframe_general.php?width=300&height=200&clave_categoria=1&empresa=1&clave_s1=1
+
+http://localhost/creativos/plata/iframe_particular.php?width=300&height=200&clave_categoria=1&empresa=1&clave_s1=1&id=12

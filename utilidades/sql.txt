@@ -1,0 +1,151 @@
+-- phpMyAdmin SQL Dump
+-- version 2.11.4
+-- http://www.phpmyadmin.net
+--
+-- Servidor: localhost
+-- Tiempo de generación: 25-06-2010 a las 18:40:24
+-- Versión del servidor: 5.0.51
+-- Versión de PHP: 5.2.5
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Base de datos: `rita`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `articulo`
+--
+
+DROP TABLE IF EXISTS `articulo`;
+CREATE TABLE IF NOT EXISTS `articulo` (
+  `clave` smallint(4) unsigned NOT NULL auto_increment,
+  `clave_categoria_ar` tinyint(5) unsigned default NULL,
+  `clave_sub1_ar` tinyint(5) unsigned default NULL,
+  `clave_sub2_ar` tinyint(5) unsigned default NULL,
+  `nombre_articulo` char(100) default NULL,
+  `foto_articulo` char(100) default NULL,
+  `texto_articulo` text,
+  `precio` char(10) default NULL,
+  `stock` tinyint(3) unsigned default NULL,
+  `video_articulo` char(100) default NULL,
+  PRIMARY KEY  (`clave`),
+  KEY `clave` (`clave`,`nombre_articulo`,`foto_articulo`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Volcar la base de datos para la tabla `articulo`
+--
+
+INSERT INTO `articulo` (`clave`, `clave_categoria_ar`, `clave_sub1_ar`, `clave_sub2_ar`, `nombre_articulo`, `foto_articulo`, `texto_articulo`, `precio`, `stock`, `video_articulo`) VALUES
+(1, 7, 6, 6, '3', '2', '2', '2', 2, NULL),
+(2, 1, 0, 0, 'chile', 'f31277499544.jpg', 'gol<br>', '5', 255, NULL),
+(3, 1, 0, 0, 'si', '', 'sss<br>', '4', 5, NULL),
+(4, 1, 0, 0, 'df', '', 'd<br>', '2', 3, NULL),
+(5, 1, 0, 0, 'rr', '', 'eee<br>', '3', 4, NULL),
+(6, 1, 1, 2, 'rope', 'fondo1277500007.jpg', 'ewr<br>', '23', 32, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `categoria`
+--
+
+DROP TABLE IF EXISTS `categoria`;
+CREATE TABLE IF NOT EXISTS `categoria` (
+  `clave` smallint(4) unsigned NOT NULL auto_increment,
+  `nombre_categoria` char(100) default NULL,
+  `foto_categoria` char(100) default NULL,
+  `texto_categoria` text,
+  PRIMARY KEY  (`clave`),
+  KEY `clave` (`clave`,`nombre_categoria`,`foto_categoria`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Volcar la base de datos para la tabla `categoria`
+--
+
+INSERT INTO `categoria` (`clave`, `nombre_categoria`, `foto_categoria`, `texto_categoria`) VALUES
+(1, 'ciro', 'a31277476782.jpg', 'eeeeeee'),
+(2, 'titon', 'f11277477242.jpg', ''),
+(3, 'rup', '', ''),
+(4, 'pablon', '', 'pab<br>');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `fotos`
+--
+
+DROP TABLE IF EXISTS `fotos`;
+CREATE TABLE IF NOT EXISTS `fotos` (
+  `clave` smallint(4) unsigned NOT NULL auto_increment,
+  `clave_categoria_f` tinyint(5) unsigned default NULL,
+  `clave_sub1_f` tinyint(5) unsigned default NULL,
+  `clave_sub2_f` tinyint(5) unsigned default NULL,
+  `clave_articulo_f` tinyint(5) default NULL,
+  `foto` char(100) default NULL,
+  `texto_foto` char(200) default NULL,
+  PRIMARY KEY  (`clave`),
+  KEY `clave` (`clave`,`clave_articulo_f`,`foto`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Volcar la base de datos para la tabla `fotos`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `subcategoria_1`
+--
+
+DROP TABLE IF EXISTS `subcategoria_1`;
+CREATE TABLE IF NOT EXISTS `subcategoria_1` (
+  `clave` smallint(4) unsigned NOT NULL auto_increment,
+  `clave_categoria_s1` tinyint(5) unsigned default NULL,
+  `nombre_sub1` char(100) default NULL,
+  `foto_sub1` char(100) default NULL,
+  `texto_sub1` text,
+  PRIMARY KEY  (`clave`),
+  KEY `clave` (`clave`,`nombre_sub1`,`foto_sub1`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Volcar la base de datos para la tabla `subcategoria_1`
+--
+
+INSERT INTO `subcategoria_1` (`clave`, `clave_categoria_s1`, `nombre_sub1`, `foto_sub1`, `texto_sub1`) VALUES
+(1, 4, 'rome', 'fondo1277483886.jpg', 'cocina<br>'),
+(2, 1, 'tero', '', 'ddd<br>'),
+(3, 2, 'jiahe', '', 'DDD<br>');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `subcategoria_2`
+--
+
+DROP TABLE IF EXISTS `subcategoria_2`;
+CREATE TABLE IF NOT EXISTS `subcategoria_2` (
+  `clave` smallint(4) unsigned NOT NULL auto_increment,
+  `clave_categoria_s2` tinyint(5) unsigned default NULL,
+  `clave_sub1_s2` tinyint(5) unsigned default NULL,
+  `nombre_sub2` char(100) default NULL,
+  `foto_sub2` char(100) default NULL,
+  `texto_sub2` text,
+  PRIMARY KEY  (`clave`),
+  KEY `clave` (`clave`,`nombre_sub2`,`foto_sub2`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Volcar la base de datos para la tabla `subcategoria_2`
+--
+
+INSERT INTO `subcategoria_2` (`clave`, `clave_categoria_s2`, `clave_sub1_s2`, `nombre_sub2`, `foto_sub2`, `texto_sub2`) VALUES
+(1, 1, 3, 'orgullo', 'fondo1277486845.jpg', 'argentino<br>'),
+(2, 1, 1, 'er', '', 'ret<br>'),
+(3, 1, 2, 'tero', '', 'embala<br>');
