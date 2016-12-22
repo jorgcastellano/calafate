@@ -1,5 +1,6 @@
 <?php
   include_once("conexion.inc.php");
+  include_once "funciones.inc.php";
 
   session_start();
 
@@ -20,9 +21,11 @@
 
     <script src="src/js/jscal2.js"></script>
     <script src="src/js/lang/en.js"></script>
+    <script src="js/utilidades_modificar_sub.js"></script>
     <link rel="stylesheet" type="text/css" href="src/css/jscal2.css" />
     <link rel="stylesheet" type="text/css" href="src/css/border-radius.css" />
     <link rel="stylesheet" type="text/css" href="src/css/steel/steel.css" />
+    <link rel="stylesheet" type="text/css" href="css/estilos.css" />
 
     <script>
       function cambia(valor){
@@ -99,229 +102,181 @@
 
       <div style="width:180px;float:left;margin-left:10px;background-color:#f3f3f3;padding-top:20px;margin-top:10px;padding-left:20px;padding-bottom:20px;margin-right:30px"><!-- columna 1 -->
 
-        <input type="button" value="Información" onclick="cambia('1')" class="boton1"><br>
+        <input type="button" value="Información y precios" onclick="cambia('1')" class="boton1"><br>
         <input type="button" value="Servicios adicionales" onclick="cambia('2')" class="boton1"><br>
-        <input type="button" value="Descuentos por edad" onclick="cambia('3')" class="boton1"><br>
-        <input type="button" value="Calendario" onclick="cambia('4')" class="boton1"><br>
-        <input type="button" value="Fotos" onclick="cambia('5')" class="boton1"><br>
-        <input type="button" value="Descuentos promocionales" onclick="cambia('6')" class="boton1"><br>
-        <input type="button" value="Info reserva" onclick="cambia('7')" class="boton1"><br>
-        <input type="button" value="Explicaciones" onclick="cambia('8')" class="boton1"><br>
-        <input type="button" value="Reglas" onclick="cambia('9')" class="boton1"><br>
-        <input type="button" value="Items tabla ventas" onclick="cambia('10')" class="boton1"><br>
-        <input type="button" value="Codigo para insertar" onclick="cambia('11')" class="boton1"><br>
-        <input type="button" value="Descuento por vendedor" onclick="cambia('12')" class="boton1"><br>
-        <input type="button" value="Borrar" onclick="cambia('13')" class="boton1"><br>
-
-
+        <input type="button" value="Calendario" onclick="cambia('3')" class="boton1"><br>
+        <input type="button" value="Fotos" onclick="cambia('4')" class="boton1"><br>
+        <input type="button" value="Descuentos promocionales" onclick="cambia('5')" class="boton1"><br>
+        <input type="button" value="Info reserva" onclick="cambia('6')" class="boton1"><br>
+        <input type="button" value="Explicaciones" onclick="cambia('7')" class="boton1"><br>
+        <input type="button" value="Reglas" onclick="cambia('8')" class="boton1"><br>
+        <input type="button" value="Items tabla ventas" onclick="cambia('9')" class="boton1"><br>
+        <input type="button" value="Codigo para insertar" onclick="cambia('10')" class="boton1"><br>
+        <input type="button" value="Descuento por vendedor" onclick="cambia('11')" class="boton1"><br>
+        <input type="button" value="Borrar" onclick="cambia('12')" class="boton1"><br>
 
       </div> <!-- columna 1 -->
 
       <div style="padding:10px;width:780px;float:left"><!-- columna 2 -->
 
-      <!--
-
-      <input type="button" value="Informacion" onclick="cambia('1')" style="cursor:pointer"><br>
-      <input type="button" value="Servicios adicionales" onclick="cambia('2')" style="cursor:pointer"><br>
-      <input type="button" value="Descuentos por edad" onclick="cambia('3')" style="cursor:pointer"><br>
-      <input type="button" value="Calendario" onclick="cambia('4')" style="cursor:pointer"><br>
-      <input type="button" value="Fotos" onclick="cambia('5')" style="cursor:pointer"><br>
-      <input type="button" value="Descuentos promocionales" onclick="cambia('6')" style="cursor:pointer"><br>
-      <input type="button" value="Info reserva" onclick="cambia('7')" style="cursor:pointer"><br>
-      <input type="button" value="Explicaciones" onclick="cambia('8')" style="cursor:pointer"><br>
-      <input type="button" value="Reglas" onclick="cambia('9')" style="cursor:pointer"><br>
-
-      -->
-
-      <?php
-      //echo "<input type='button' value='Configuracion' onclick=location.href='configuracion.php?clave_sub2=$_GET[clave_sub2]' style='cursor:pointer'>";
-      ?>
-
-
       <?php
 
       echo "<div style='display:none' id='1'>";
 
-      include_once("info_sub2.inc.php");
-
-
+        include_once("info_sub2.inc.php");
+        include_once("precio_edad.inc.php");
 
       echo "</div>";
+
+      ##################################################ADICIONALES
+      ##################################################ADICIONALES
+
       echo "<div style='display:none' id='2'>";
 
-
-      ##################################################ADICIONALES
-      ##################################################ADICIONALES
-
-      include_once("adicionales_sub2.inc.php");
-
-
-      ##################################################FIN ADICIONALES
-      ##################################################FIN ADICIONALES
-
+        include_once("adicionales_sub2.inc.php");
 
       echo "</div>";
 
+      ##################################################FIN ADICIONALES
+      ##################################################FIN ADICIONALES
+
+
+      ################################################CALENDARIO
+      ################################################CALENDARIO
       echo "<div style='display:none' id='3'>";
 
-
-      ################################################DESCUENTOS POR EDAD
-      ################################################DESCUENTOS POR EDAD
-
-      include_once("desc_edad_sub2.inc.php");
-
-
-      ################################################FIN DESCUENTOS POR EDAD
-      ################################################FIN DESCUENTOS POR EDAD
-
+        include_once("calendario_sub2.inc.php");
 
       echo "</div>";
+      ################################################FIN CALENDARIO
+      ################################################FIN CALENDARIO
 
 
-      ################################################CALENDARIO
-      ################################################CALENDARIO
+
+      ###############################################FOTOS
+      ###############################################FOTOS
+
+      $sub2 = $_GET["clave_sub2"];
       echo "<div style='display:none' id='4'>";
 
-      include_once("calendario_sub2.inc.php");
+        include_once("fotos_sub2.inc.php");
 
       echo "</div>";
-      ################################################FIN CALENDARIO
-      ################################################FIN CALENDARIO
+
+      ###############################################FIN FOTOS
+      ###############################################FIN FOTOS
 
 
-
-      ###############################################FOTOS
-      ###############################################FOTOS
-      $sub2 = $_GET["clave_sub2"];
+      ###############################################DESC PROMOCIONALES
+      ###############################################DESC PROMOCIONALES
 
       echo "<div style='display:none' id='5'>";
 
-
-      include_once("fotos_sub2.inc.php");
-
+        include_once("cupon_sub2.inc.php");
 
       echo "</div>";
-      ###############################################FIN FOTOS
-      ###############################################FIN FOTOS
+
+      ###############################################FIN DESC PROMOCIONALES
+      ###############################################FIN DESC PROMOCIONALES
 
 
-      ###############################################DESC PROMOCIONALES
-      ###############################################DESC PROMOCIONALES
+      ############################################### INFO RESERVA
+      ############################################### INFO RESERVA
+
       echo "<div style='display:none' id='6'>";
 
-      include_once("cupon_sub2.inc.php");
+        include_once("info_reserva.inc.php");
 
       echo "</div>";
-      ###############################################FIN DESC PROMOCIONALES
-      ###############################################FIN DESC PROMOCIONALES
+
+      ############################################### FIN INFO RESERVA
+      ############################################### FIN INFO RESERVA
 
 
-      ############################################### INFO RESERVA
-      ############################################### INFO RESERVA
+      ############################################### INFO EXPLICACIONES
+      ############################################### INFO EXPLICACIONES
+
       echo "<div style='display:none' id='7'>";
 
-      include_once("info_reserva.inc.php");
-
+        include_once("reglas_sub2.inc.php");
 
       echo "</div>";
-      ############################################### FIN INFO RESERVA
-      ############################################### FIN INFO RESERVA
+
+      ############################################### FIN INFO EXPLICACIONES
+      ############################################### FIN INFO EXPLICACIONES
 
 
-      ############################################### INFO EXPLICACIONES
-      ############################################### INFO EXPLICACIONES
+      ############################################### INFO REGLAS
+      ############################################### INFO REGLAS
+
       echo "<div style='display:none' id='8'>";
 
-      include_once("reglas_sub2.inc.php");
-
+        include_once("reglas_venta_sub2.inc.php");
 
       echo "</div>";
-      ############################################### FIN INFO EXPLICACIONES
-      ############################################### FIN INFO EXPLICACIONES
+
+      ############################################### FIN INFO REGLAS
+      ############################################### FIN INFO REGLAS
 
 
-      ############################################### INFO REGLAS
-      ############################################### INFO REGLAS
+      ############################################### INFO ITEMS TABLA VENTA
+      ############################################### INFO ITEMS TABLA VENTA
+
       echo "<div style='display:none' id='9'>";
 
-      include_once("reglas_venta_sub2.inc.php");
-
+        include_once("items_venta_sub2.inc.php");
 
       echo "</div>";
-      ############################################### FIN INFO REGLAS
-      ############################################### FIN INFO REGLAS
+
+      ############################################### FIN INFO ITEMS TABLA VENTA
+      ############################################### FIN INFO ITEMS TABLA VENTA
 
 
+      ############################################### CODIGO INSERTAR
+      ############################################### CODIGO INSERTAR
 
-      ############################################### INFO ITEMS TABLA VENTA
-      ############################################### INFO ITEMS TABLA VENTA
       echo "<div style='display:none' id='10'>";
 
+        if(isset($_GET["clave_div"]))
+          echo "<script>document.getElementById('11').style.display='block'</script>";
 
-
-      include_once("items_venta_sub2.inc.php");
+        include_once("codigo_cargar_sub2.inc.php");
 
       echo "</div>";
-      ############################################### FIN INFO ITEMS TABLA VENTA
-      ############################################### FIN INFO ITEMS TABLA VENTA
+
+      ############################################### FIN CODIGO INSERTAR
+      ############################################### FIN CODIGO INSERTAR
 
 
+      ############################################### DESCUENTO POR VENDEDOR
+      ############################################### DESCUENTO POR VENDEDOR
 
-      ############################################### CODIGO INSERTAR
-      ############################################### CODIGO INSERTAR
       echo "<div style='display:none' id='11'>";
 
-      if(isset($_GET["clave_div"])){
-
-      echo "<script>document.getElementById('11').style.display='block'</script>";
-
-      }//if(isset($_GET["clave_div"])){
-
-      include_once("codigo_cargar_sub2.inc.php");
-
+        include_once("descuento_vendedor_sub2.php");
 
       echo "</div>";
-      ############################################### FIN CODIGO INSERTAR
-      ############################################### FIN CODIGO INSERTAR
+
+      ############################################### FIN DESCUENTO POR VENDEDOR
+      ############################################### FIN DESCUENTO POR VENDEDOR
 
 
       ############################################### DESCUENTO POR VENDEDOR
       ############################################### DESCUENTO POR VENDEDOR
+
       echo "<div style='display:none' id='12'>";
 
-
-      include_once("descuento_vendedor_sub2.php");
-
+        include_once("borrar_sub2.php");
 
       echo "</div>";
+
       ############################################### FIN DESCUENTO POR VENDEDOR
       ############################################### FIN DESCUENTO POR VENDEDOR
-
-
-
-      ############################################### DESCUENTO POR VENDEDOR
-      ############################################### DESCUENTO POR VENDEDOR
-      echo "<div style='display:none' id='13'>";
-
-
-      include_once("borrar_sub2.php");
-
-
-      echo "</div>";
-      ############################################### FIN DESCUENTO POR VENDEDOR
-      ############################################### FIN DESCUENTO POR VENDEDOR
-
 
       ?>
 
 
-
-
-
-
-
-
-      <script type="text/javascript">//<![CDATA[
+        <script type="text/javascript">
 
             var cal = Calendar.setup({
                 onSelect: function(cal) { cal.hide() },
@@ -329,21 +284,16 @@
             });
             cal.manageFields("f_btn1", "desde", "%d/%m/%Y");
             cal.manageFields("f_btn2", "hasta", "%d/%m/%Y");
-      	  cal.manageFields("f_btn11", "desde_cupon", "%d/%m/%Y");
+        	  cal.manageFields("f_btn11", "desde_cupon", "%d/%m/%Y");
             cal.manageFields("f_btn22", "hasta_cupon", "%d/%m/%Y");
 
-
-          //]]></script>
+        </script>
 
       </div>  <!-- fin columna 2 -->
-
-
       <div style="clear:both"></div>
-
-      <div style="width:100%;text-align:center;height:40px;background-color:#666666;margin-top:40px"><a href="index.php"><img src="imagenes/bot_volver.png" title="Volver al panel"></a></div>
-
+      <div style="width:100%;text-align:center;height:40px;background-color:#666666;margin-top:40px">
+        <a href="index.php"><img src="imagenes/bot_volver.png" title="Volver al panel"></a>
+      </div>
     </div><!-- global-->
-
-
   </body>
 </html>
